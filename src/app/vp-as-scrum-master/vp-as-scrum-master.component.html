@@ -1,0 +1,67 @@
+<main>
+  <div class="position-relative">
+    <div class="developer-url-info justify-content-end">
+        <p>{{globalHelper.getLang('vp-as-scrum-master.developerUrlInfo')}} <mark>{{developerUrl}}</mark></p>
+    </div>
+    <div class="row justify-content-center no-margin">
+      <div class="col-md-6 col-xs-12">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{globalHelper.getLang('story-table.storyList')}}</h5>
+            <app-story-table></app-story-table>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-xs-12">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{globalHelper.getLang('active-story')}}</h5>
+            <app-active-story isScrumMasterUser="{{isScrumMasterUser}}"></app-active-story>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-xs-12" *ngIf="activeStory !== undefined">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{globalHelper.getLang('vp-as-scrum-master.scrumMasterPanel')}}</h5>
+            <h6 class="card-subtitle">{{activeStory.name + globalHelper.getLang('vp-as-scrum-master.storySuffix')}}</h6>
+            <ul class="list-group">
+              <li class="list-group-item" *ngFor="let voter of voters">
+                {{voter.name + ': ' + voter.status}}
+              </li>
+              <li class="list-group-item">
+                {{globalHelper.getLang('vp-as-scrum-master.scrumMaster')}}: {{globalHelper.isNullOrEmptyOrUndefined(activeStory.scrumMasterPoint) ? 'Not Voted' : activeStory.scrumMasterPoint}}
+              </li>
+            </ul>
+            <div class="row m-t-20" *ngIf="showWarningdiffPoint">
+              <ul class="text-center">
+                  <li><small>{{globalHelper.getLang('vp-as-scrum-master.warning.diffPoint1')}}</small></li>
+                  <li><small>{{globalHelper.getLang('vp-as-scrum-master.warning.diffPoint2')}}</small></li>
+              </ul>
+            </div>
+            <div class="row justify-content-center m-t-20" *ngIf="showFinalScore">
+                <div class="col-md-12 p-l-0">
+                  <div class="form-group row no-margin">
+                    <label class="col-md-12 col-form-label text-center">{{globalHelper.getLang('vp-as-scrum-master.finalScore')}}</label>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-md-12">
+                      <input type="text" class="form-control" [(ngModel)]="finalScore">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row justify-content-center m-t-20">
+                <div class="col-md-12 text-center">
+                    <button class="btn btn-default btn-block" type="button" (click)="endVoting()">{{globalHelper.getLang('vp-as-scrum-master.endVoting') + activeStory.name}}</button>
+                </div>
+              </div>
+              <div class="alert alert-secondary m-t-20" role="alert" *ngIf="showEndVotingAlert">
+                  {{globalHelper.getLang('vp-as-scrum-master.warning.endVoting')}}
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

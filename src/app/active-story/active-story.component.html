@@ -1,0 +1,9 @@
+<h6 class="card-title">{{activeStory !== undefined ? activeStory.name : ''}}</h6>
+<div class="row justify-content-center no-margin" *ngIf="activeStory !== undefined">
+  <div class="col-md-3 col-xs-6" *ngFor="let point of points">
+    <button type="button" class="btn btn-outline-default btn-block {{ selectedVoted == point ? 'active' : '' }}" (click)=setVote(point)>
+      <span>{{point}}</span>
+    </button>
+  </div>
+</div>
+<div class=" row justify-content-center point-info">{{pointInfo}}</div>

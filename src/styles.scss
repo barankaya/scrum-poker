@@ -1,0 +1,26 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: cursive;
+  background: #FFEFBA;
+  background: -webkit-linear-gradient(to right, #FFFFFF, #FFEFBA);
+  background: linear-gradient(to right, #FFFFFF, #FFEFBA);
+}
+
+.p-r-0{
+  padding-right: 0 !important;
+}
+
+.p-l-0{
+  padding-left: 0 !important;
+}
+
+.no-margin{
+  margin: 0 !important;
+}
+
+.m-t-20{
+  margin-top: 20px !important;
+}

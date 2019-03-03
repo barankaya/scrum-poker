@@ -1,0 +1,40 @@
+<main>
+  <div class="position-relative">
+    <div class="container shape-container">
+      <div class="row justify-content-center">
+        <div class="col-md-6 col-xs-12 p-l-0">
+          <div class="form-group row">
+            <label class="col-sm-4 col-form-label">{{globalHelper.getLang('add-story-list.sessionName')}}</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control {{ sessionNameInvalid ? 'is-invalid' : '' }}" maxlength="200" [(ngModel)]="sessionName">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-xs-12 p-r-0">
+          <div class="form-group row">
+            <label class="col-sm-4 col-form-label">{{globalHelper.getLang('add-story-list.numberOfVoters')}}</label>
+            <div class="col-sm-8">
+              <input type="number" class="form-control {{ numberOfVotersInvalid ? 'is-invalid' : '' }}" [(ngModel)]="numberOfVoters">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-12">
+          <div class="form-group row">
+            <label for="exampleFormControlTextarea1">{{globalHelper.getLang('add-story-list.storiesHeading')}}</label>
+            <textarea class="form-control" rows="15" [(ngModel)]="stories"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-end">
+        <div class="col-xs-12">
+            <button class="btn btn-icon btn-3 btn-default" type="button" (click)="startSession()">
+                <span class="btn-inner--icon"><i class="ni ni-button-play"></i></span>
+                  <span class="btn-inner--text">{{globalHelper.getLang('add-story-list.startSession')}}</span>
+              </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

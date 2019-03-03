@@ -1,0 +1,22 @@
+<main>
+    <div class="position-relative">
+      <div class="row justify-content-center no-margin">
+        <div class="col-md-8 col-xs-12">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">{{globalHelper.getLang('story-table.storyList')}}</h5>
+              <app-story-table></app-story-table>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-xs-12">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">{{globalHelper.getLang('active-story')}}</h5>
+              <app-active-story isScrumMasterUser="{{isScrumMasterUser}}"></app-active-story>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
